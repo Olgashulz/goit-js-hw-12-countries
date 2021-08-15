@@ -7,7 +7,7 @@ import "@pnotify/core/dist/BrightTheme.css";
 import "@pnotify/confirm/dist/PNotifyConfirm.css";
 
 function fetchCountries(name) {
-    console.log(name)
+    // console.log(name)
     fetch(`https://restcountries.eu/rest/v2/name/${name}`)
         .then(response => {
             return response.json();

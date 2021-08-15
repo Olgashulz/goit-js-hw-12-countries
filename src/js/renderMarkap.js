@@ -12,7 +12,7 @@ import "@pnotify/confirm/dist/PNotifyConfirm.css";
 
 function renderMarkup(arrCountries) {
         refs.container.innerHTML = '';
-
+      
         if (arrCountries.length === 1) {
             renderCard(arrCountries);
         } else if (arrCountries.length > 1 && arrCountries.length <= 10) {
@@ -20,7 +20,7 @@ function renderMarkup(arrCountries) {
         }
         else if (arrCountries.length > 10) {
             notifError();
-        } else {
+        }else {
             onFetchError();
         }
     }
