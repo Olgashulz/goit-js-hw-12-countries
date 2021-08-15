@@ -1,8 +1,10 @@
-{{#each this}}
-<div class="country__card">
-            <ul>
-                <li class ="list country__list"> {{name}}
+
+<div class="countries__box">    
+            <ul class = " list country__list">
+                {{#each this}}
+                <li class ="country__item"> {{name}}
                 </li>
+                {{/each}}
             </ul>
+            
 </div>
-{{/each}}

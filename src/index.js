@@ -11,11 +11,12 @@ const debounce = require('lodash.debounce');
 export const refs = {
     inputEl: document.querySelector('#country-name-input'),
     container: document.querySelector('.card-container'),
-
     body: document.querySelector('body'),
+    
 }
 
 //console.log(refs.body)
+
 
 refs.inputEl.addEventListener('input', debounce(getCountry, 500));
 refs.body.addEventListener('click', closeContryCard );

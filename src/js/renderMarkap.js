@@ -1,5 +1,6 @@
 import countryCardTpl from '../templates/countryCardTpl.hbs';
 import countryListTpl from '../templates/countryListTpl.hbs';
+import fetchCountries from '../js/fetchCountries'
 import { refs } from '../index';
 
 export default renderMarkup;
@@ -16,7 +17,9 @@ function renderMarkup(arrCountries) {
         if (arrCountries.length === 1) {
             renderCard(arrCountries);
         } else if (arrCountries.length > 1 && arrCountries.length <= 10) {
+            
             renderListCountry(arrCountries);
+            renderOneOfMany(arrCountries);
         }
         else if (arrCountries.length > 10) {
             notifError();
@@ -24,6 +27,12 @@ function renderMarkup(arrCountries) {
             onFetchError();
         }
     }
+
+    function openOnClick (event){
+        console.log(event.target)
+        console.log(event.target.textContent)
+        fetchCountries(event.target.textContent)
+     }
 
     function renderListCountry(arrCountries) {
         const markup = countryListTpl(arrCountries);
@@ -45,3 +54,8 @@ function renderMarkup(arrCountries) {
         delay: 1500,
     });
 };
+
+    function renderOneOfMany(arrCountries){
+        let countryListEl = document.querySelector('.country__list')
+        countryListEl.addEventListener("click", openOnClick);
+}
