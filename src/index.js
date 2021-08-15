@@ -16,11 +16,11 @@ defaultModules.set(PNotifyMobile, {});
 
 const refs = {
     inputEl: document.querySelector('#country-name-input'),
-    container: document.querySelector('.container')
+    container: document.querySelector('.card-container')
 }
 
 console.log(refs.container);
-refs.inputEl.addEventListener('input', debounce(getCountry, 1000));
+refs.inputEl.addEventListener('input', debounce(getCountry, 500));
 
 console.log(refs.inputEl);
 
@@ -47,6 +47,7 @@ function fetchCountry(name) {
 }
 
 function renderInterfeys(arrCountries) {
+    refs.container.innerHTML = '';
     if (arrCountries.length === 1) {
         console.log('risyu 1')
         console.log(arrCountries);
@@ -90,7 +91,7 @@ function onFetchError() {
         title: `Too many matches found.`,
         text: `We found ${data.length} countries. Please enter a more specific query!`,
         styling: 'brighttheme',
-        delay: 500,
+        delay: 300,
     });
  }
 
@@ -98,6 +99,6 @@ function notifError() {
     error({
         title: "Too many matches found!",
         text: "Please enter a more specific query!",
-        delay: 2000,
+        delay: 1000,
     });
 };

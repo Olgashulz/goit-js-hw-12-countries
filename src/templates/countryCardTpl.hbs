@@ -2,9 +2,12 @@
 <div class="country__card">
     <h2 class="country__title">{{name}}</h2>
     <div class="country__container">
+        <div class="images-block">
+            <img class="images-block__img" src="{{flag}}" alt="flag">
+        </div>
         <div class="text-block">
-            <ul>
-                <li> <span class="text-block__subtitle">
+            <ul class="list">
+                <li> <span class="text-block__subtitle list">
                         Capital:</span>
                     <span class="text-block__value">{{capital}}</span>
                 </li>
@@ -16,14 +19,11 @@
                         Languages:</span>
                     <ul class="lang__list">
                         {{#each languages}}
-                        <li class="text-block__value">{{this.name}}</li>
+                        <li class="text-block__value list">{{this.name}}</li>
                         {{/each}}
                     </ul>
                 </li>
             </ul>
-        </div>
-        <div class="images-block">
-            <img class="images-block__img" src="{{flag}}" alt="flag">
         </div>
     </div>
 </div>
