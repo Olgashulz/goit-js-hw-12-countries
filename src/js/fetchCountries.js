@@ -14,13 +14,13 @@ function fetchCountries(name) {
         })
         .then(arr => {    
             console.log(arr);
-            renderMarkup(arr);
-            
+            renderMarkup(arr);            
         })
         .catch(onFetchError)
 }
 
 function onFetchError() {
+    
     error({
         title: "I can't find this country!",
         text: "Please check the spelling!",

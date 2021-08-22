@@ -19,14 +19,12 @@ function renderMarkup(arrCountries) {
             return;
         } else if (arrCountries.length === 1) {
             renderCard(arrCountries);
-        } else if (arrCountries.length > 1 && arrCountries.length <= 10) {
-            
+        } else if (arrCountries.length > 1 && arrCountries.length <= 10) {            
             renderListCountry(arrCountries);
             renderOneOfMany(arrCountries);
-        }
-        else if (arrCountries.length > 10) {
+        } else if (arrCountries.length > 10) {
             notifError();
-        }else {
+        } else {
             onFetchError();
         }
     }
@@ -66,9 +64,8 @@ function renderMarkup(arrCountries) {
         countryListEl.addEventListener("click", openOnClick);
 }
 
-function changeСountryInInput (country) {
+    function changeСountryInInput (country) {
     let selectedCountry = document.querySelector('.country__title');
     console.log(selectedCountry.textContent)
     refs.inputEl.value = selectedCountry.textContent; 
-
-}
+    }
