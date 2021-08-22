@@ -15,9 +15,6 @@ export const refs = {
     
 }
 
-//console.log(refs.body)
-
-
 refs.inputEl.addEventListener('input', debounce(getCountry, 500));
 refs.body.addEventListener('click', closeContryCard );
 window.addEventListener('keydown', closeEscModal);
