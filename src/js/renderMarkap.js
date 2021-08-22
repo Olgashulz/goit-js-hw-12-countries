@@ -12,9 +12,12 @@ import "@pnotify/confirm/dist/PNotifyConfirm.css";
 
 
 function renderMarkup(arrCountries) {
+
         refs.container.innerHTML = '';
-      
-        if (arrCountries.length === 1) {
+
+        if (arrCountries.length < 1) {
+            return;
+        } else if (arrCountries.length === 1) {
             renderCard(arrCountries);
         } else if (arrCountries.length > 1 && arrCountries.length <= 10) {
             
@@ -29,7 +32,7 @@ function renderMarkup(arrCountries) {
     }
 
     function openOnClick (event){
-        console.log(event.target)
+        // console.log(event.target)
         console.log(event.target.textContent)
         fetchCountries(event.target.textContent)
      }
@@ -40,12 +43,15 @@ function renderMarkup(arrCountries) {
     }
         
     
-    function renderCard(country) {
-        refs.inputEl.value = '';     
+    function renderCard(country) {            
         //console.log(country);
-        const markup = countryCardTpl(country);
+        //console.log(refs.inputEl.value);
+        const markup = countryCardTpl(country);        
         refs.container.innerHTML = markup;
+
+        changeСountryInInput(country);
     }
+
 
     function notifError() {
     error({
@@ -58,4 +64,11 @@ function renderMarkup(arrCountries) {
     function renderOneOfMany(arrCountries){
         let countryListEl = document.querySelector('.country__list')
         countryListEl.addEventListener("click", openOnClick);
+}
+
+function changeСountryInInput (country) {
+    let selectedCountry = document.querySelector('.country__title');
+    console.log(selectedCountry.textContent)
+    refs.inputEl.value = selectedCountry.textContent; 
+
 }

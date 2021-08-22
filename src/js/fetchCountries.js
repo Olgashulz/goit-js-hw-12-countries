@@ -12,8 +12,10 @@ function fetchCountries(name) {
         .then(response => {
             return response.json();
         })
-        .then(arr => {            
+        .then(arr => {    
+            console.log(arr);
             renderMarkup(arr);
+            
         })
         .catch(onFetchError)
 }

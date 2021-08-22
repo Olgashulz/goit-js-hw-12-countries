@@ -28,6 +28,8 @@ function getCountry(event) {
 function closeContryCard(){
     if (document.querySelector('.country__card')){
         refs.container.innerHTML = '';
+        refs.inputEl.value = '';
+
     }
 }
 
